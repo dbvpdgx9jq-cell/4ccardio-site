@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="4 Chambers Cardiology: interventional cardiology and vascular care in Miami and Doral. Call 305.856.1064.">
+<title>4 Chambers Cardiology</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --ground:#F6F8FB; --surface:#FFFFFF; --tint:#E9EFF6; --ink:#0F2233; --ink-soft:#44566A; --rule:#CBD6E2;
+  --arterial:#A8231F; --arterial-soft:#FBEBEA; --venous:#1D4F91; --venous-soft:#E6EEF9;
+  --on-accent:#FFFFFF;
+  --display:"Red Hat Display","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0B1621; --surface:#12212F; --tint:#182C3E; --ink:#E8EEF4; --ink-soft:#A9B9C9; --rule:#2B4156;
+    --arterial:#F2847B; --arterial-soft:#33191A; --venous:#86B6EE; --venous-soft:#14283F; --on-accent:#0B1621;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0B1621; --surface:#12212F; --tint:#182C3E; --ink:#E8EEF4; --ink-soft:#A9B9C9; --rule:#2B4156;
+  --arterial:#F2847B; --arterial-soft:#33191A; --venous:#86B6EE; --venous-soft:#14283F; --on-accent:#0B1621;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;margin:0}
+a{color:var(--venous)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--venous);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:800;letter-spacing:-0.015em}
+h2{font-size:clamp(1.6rem,3.4vw,2.25rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.lede{font-size:1.2rem;color:var(--ink-soft);max-width:60ch}
+.stack{display:flex;flex-direction:column;gap:16px}
+.stack-lg{display:flex;flex-direction:column;gap:32px}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--rule)}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand-name{font-family:var(--display);font-weight:800;font-size:1.15rem;line-height:1.1}
+.brand-sub{font-size:.8rem;color:var(--ink-soft);letter-spacing:.04em}
+.nav{display:flex;gap:18px;font-weight:600;font-size:.98rem;white-space:nowrap}
+.nav a{color:var(--ink);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--arterial)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:1.05rem;text-decoration:none;padding:12px 22px;border-radius:999px;border:2px solid transparent}
+.btn-call{background:var(--arterial);color:var(--on-accent)}
+.btn-call:hover{filter:brightness(1.08)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--tint)}
+.head-call{padding:9px 18px;font-size:1rem}
+@media (max-width:980px){.nav{display:none}}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:start}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.ecg{width:100%;height:56px;display:block;margin-top:8px}
+.ecg path{fill:none;stroke:var(--arterial);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.facts{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.facts dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:1.02rem}
+.facts dt{color:var(--ink-soft);font-weight:600}
+.facts dd{margin:0;font-variant-numeric:tabular-nums}
+.facts dd a{color:var(--ink);font-weight:700;text-decoration:none}
+.habla{font-family:var(--display);font-weight:700;color:var(--venous)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero{padding-block:36px 28px}}
+
+section{padding-block:56px}
+.band{background:var(--surface);border-block:1px solid var(--rule)}
+
+/* three points */
+.points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.points h3{margin-bottom:8px}
+.points p{color:var(--ink-soft)}
+.point{border-top:3px solid var(--ink);padding-top:16px}
+@media (max-width:760px){.points{grid-template-columns:1fr;gap:24px}}
+
+/* pre-op */
+.preop{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:center;background:var(--ink);color:var(--ground);border-radius:18px;padding:40px}
+.preop .eyebrow{color:var(--rule)}
+.preop p{max-width:58ch}
+.preop ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:10px}
+.preop .btn-call{align-self:flex-start}
+@media (max-width:760px){.preop{grid-template-columns:1fr;padding:28px 22px;gap:24px}}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;align-items:start}
+.svc-col{display:flex;flex-direction:column;gap:12px}
+.svc-head{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:3px solid var(--c)}
+.svc-head .dot{width:14px;height:14px;border-radius:50%;background:var(--c);flex:none}
+.cardiac{--c:var(--arterial);--c-soft:var(--arterial-soft)}
+.vascular{--c:var(--venous);--c-soft:var(--venous-soft)}
+.sub{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+details{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px;font-weight:600;font-size:1.08rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-weight:700;font-size:1.4rem;line-height:1;color:var(--c);flex:none}
+details[open] summary::after{content:"\2212"}
+details[open] summary{color:var(--c)}
+details p{padding:0 0 16px;color:var(--ink-soft);max-width:60ch}
+.note{background:var(--tint);border-radius:12px;padding:20px 24px;max-width:75ch}
+@media (max-width:860px){.svc-grid{grid-template-columns:1fr}}
+
+/* team */
+.team{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:48px;align-items:start}
+.bio p{max-width:62ch}
+.creds{margin:0;padding:0;list-style:none;display:grid;gap:0}
+.creds li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-block:10px;border-top:1px solid var(--rule);font-size:1rem}
+.creds li span:first-child{color:var(--ink-soft);font-weight:600}
+.person{display:flex;flex-direction:column;gap:6px}
+.role{color:var(--ink-soft);font-weight:600}
+@media (max-width:860px){.team{grid-template-columns:1fr;gap:32px}.creds li{grid-template-columns:1fr;gap:2px}}
+
+/* locations */
+.locs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.loc{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.loc address{font-style:normal;font-weight:600;font-size:1.08rem}
+.loc p{color:var(--ink-soft);flex:1}
+.tag{align-self:flex-start;font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;background:var(--tint);color:var(--ink)}
+@media (max-width:900px){.locs{grid-template-columns:1fr}}
+
+/* two-col text */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.two ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:8px}
+.kv{font-variant-numeric:tabular-nums;font-family:var(--display);font-weight:700;font-size:1.5rem}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:32px}}
+
+.emerg{background:var(--arterial-soft);border-left:5px solid var(--arterial);padding:16px 20px;font-weight:600}
+footer{background:var(--ink);color:var(--ground);padding-block:40px 96px;font-size:.98rem}
+footer a{color:var(--ground)}
+.foot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.fine{margin-top:32px;padding-top:20px;border-top:1px solid var(--ink-soft);color:var(--rule);font-size:.9rem;max-width:90ch}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+
+.callbar{display:none}
+@media (max-width:760px){
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--arterial);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));justify-content:center}
+  .callbar a{color:var(--on-accent);font-family:var(--display);font-weight:800;font-size:1.1rem;text-decoration:none}
+  .head-call{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="4 Chambers Cardiology home">
+      <svg width="38" height="42" viewBox="0 0 38 42" aria-hidden="true">
+        <rect x="0" y="0" width="17" height="14" rx="5" fill="var(--venous)"/>
+        <rect x="21" y="0" width="17" height="14" rx="5" fill="var(--arterial)"/>
+        <path d="M0 18h17v24C8 38 0 30 0 18z" fill="var(--venous)"/>
+        <path d="M21 18h17c0 12-8 20-17 24z" fill="var(--arterial)"/>
+      </svg>
+      <span><span class="brand-name">4 Chambers Cardiology</span><br><span class="brand-sub">Cardiac and Vascular Services</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#team">Our team</a>
+      <a href="#locations">Locations</a>
+      <a href="#patients">Patients</a>
+      <a href="#referring">Referrals</a>
+    </nav>
+    <a class="btn btn-call head-call" href="tel:+13058561064">Call 305.856.1064</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero wrap">
+  <div class="hero-grid">
+    <div class="stack-lg">
+      <div class="stack">
+        <p class="eyebrow">Miami &middot; Doral</p>
+        <h1>Your heart and your circulation, cared for by one team.</h1>
+        <svg class="ecg" viewBox="0 0 600 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 32H120l8-6 8 6h14l6 8 10-36 10 48 6-20h16q10-14 20 0H330l8-6 8 6h14l6 8 10-36 10 48 6-20h16q10-14 20 0H600"/></svg>
+      </div>
+      <p class="lede">4 Chambers Cardiology is the practice of interventional cardiologist Dr. Marcos Valerio. Consultations, heart and vascular imaging, stress testing, and artery and vein procedures all happen in our own offices.</p>
+      <div class="hero-cta">
+        <a class="btn btn-call" href="tel:+13058561064">Call 305.856.1064</a>
+        <a class="btn btn-ghost" href="#locations">Find an office</a>
+      </div>
+    </div>
+    <aside class="facts" aria-label="Contact at a glance">
+      <dl>
+        <dt>Phone</dt><dd><a href="tel:+13058561064">305.856.1064</a></dd>
+        <dt>Fax</dt><dd>305.856.0644</dd>
+        <dt>Offices</dt><dd>Two in Miami, one in Doral</dd>
+        <dt>Days</dt><dd>Monday to Friday</dd>
+      </dl>
+      <p class="habla">Hablamos espa&ntilde;ol.</p>
+      <div class="emerg">Chest pain that won't go away, or signs of a stroke? Call 911. Do not wait for an appointment.</div>
+    </aside>
+  </div>
+</div>
+
+<section class="band" aria-labelledby="why-h">
+  <div class="wrap stack-lg">
+    <h2 id="why-h">What makes the practice different</h2>
+    <div class="points">
+      <div class="point"><h3>Testing and your visit on the same day</h3><p>Your echocardiogram, vascular ultrasound or stress test can be scheduled alongside your appointment, so you hear the results from the doctor in one trip.</p></div>
+      <div class="point"><h3>Heart and vascular care together</h3><p>Blocked arteries in the legs, varicose veins and heart disease share the same causes. One physician evaluates and treats all of them.</p></div>
+      <div class="point"><h3>Care in English and Spanish</h3><p>Dr. Valerio is a native Spanish speaker. You can ask your questions, and understand the answers, in the language you are most comfortable with.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="preop-h">
+  <div class="wrap">
+    <div class="preop">
+      <div class="stack">
+        <p class="eyebrow">Before surgery</p>
+        <h2 id="preop-h">Need cardiac clearance for an upcoming operation?</h2>
+        <p>If your surgeon has asked for a cardiology evaluation, tell us your surgery date when you call and we will schedule around it. Any testing the evaluation calls for is done in our office.</p>
+        <a class="btn btn-call" href="tel:+13058561064">Call to schedule</a>
+      </div>
+      <ol>
+        <li>Call us with your surgery date and your surgeon's name and fax number.</li>
+        <li>Come in for your visit and ECG, plus an echocardiogram or stress test if one is needed.</li>
+        <li>We fax the clearance letter to your surgeon.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="services" aria-labelledby="svc-h">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <h2 id="svc-h">Services and procedures</h2>
+      <p class="lede">Select any item to read more.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-col cardiac">
+        <div class="svc-head"><span class="dot"></span><h3>Cardiac</h3></div>
+        <p class="sub">Conditions we treat</p>
+        <details><summary>Coronary artery disease and chest pain</summary><p>Coronary artery disease develops when cholesterol-heavy plaque narrows the arteries of the heart. It can cause chest pressure, shortness of breath, or no symptoms at all. We look for it with stress testing and imaging, and treat it with medication, risk-factor control and, when needed, catheterization.</p></details>
+        <details><summary>Shortness of breath and heart failure</summary><p>Breathlessness, leg swelling and fatigue can mean the heart is not pumping or relaxing the way it should. An echocardiogram usually gives the answer, and treatment is adjusted visit by visit.</p></details>
+        <details><summary>Palpitations and irregular heartbeat</summary><p>Skipped beats, racing or fluttering range from harmless to serious. We sort out which it is with ECG and heart-rhythm monitoring and manage it with medication. When an electrophysiology study or ablation is the right answer, we refer you to a specialist who performs them.</p></details>
+        <details><summary>Fainting and dizziness</summary><p>We check whether a heart rhythm problem, a valve problem or blood pressure is behind the episode.</p></details>
+        <details><summary>High blood pressure and high cholesterol</summary><p>The two most common and most treatable causes of heart attack and stroke. We set targets with you and adjust treatment until you reach them.</p></details>
+        <details><summary>Heart valve disease and murmurs</summary><p>Valves that leak or do not open fully are followed with echocardiograms over time, so that repair or replacement is recommended at the right moment and not before.</p></details>
+        <p class="sub">Testing and procedures</p>
+        <details><summary>Consultation and second opinions</summary><p>A full review of your history, medications and prior testing, an ECG, and a plan you can understand.</p></details>
+        <details><summary>Echocardiogram</summary><p>An ultrasound of the heart that shows its size, pumping strength and valves. It is painless and takes about 15 minutes. A transesophageal echo is arranged when a closer view is needed.</p></details>
+        <details><summary>Treadmill stress test</summary><p>Your ECG and blood pressure are monitored while you walk on a treadmill, to see how your heart responds to exercise.</p></details>
+        <details><summary>Nuclear stress test (SPECT) and cardiac PET</summary><p>Imaging that shows how well blood reaches the heart muscle at rest and under stress. It can be done with medication for patients who cannot walk on a treadmill.</p></details>
+        <details><summary>Pacemaker, defibrillator and loop recorder checks</summary><p>Regular in-office checks of your device's battery, leads and recorded heart rhythms.</p></details>
+        <details><summary>Cardiac catheterization, angioplasty and stenting</summary><p>A thin catheter is guided to the heart to take pictures of the coronary arteries and measure pressures directly. When a blockage needs treatment, Dr. Valerio opens it with a balloon and stent. Right heart catheterization is performed when pressures in the lungs and the right side of the heart need to be measured.</p></details>
+        <details><summary>Electrical cardioversion</summary><p>A brief, controlled shock given under sedation to return an irregular rhythm such as atrial fibrillation to normal.</p></details>
+        <details><summary>In-office lab work</summary><p>Blood can be drawn during your visit, so you do not need a separate trip to a lab.</p></details>
+      </div>
+      <div class="svc-col vascular">
+        <div class="svc-head"><span class="dot"></span><h3>Vascular</h3></div>
+        <p class="sub">Conditions we treat</p>
+        <details><summary>Peripheral artery disease (PAD)</summary><p>Narrowed arteries in the legs cause cramping when you walk, wounds that are slow to heal, or cold feet. PAD is also a warning sign for heart disease, which is why we evaluate both.</p></details>
+        <details><summary>Varicose veins and venous insufficiency</summary><p>When the valves in the leg veins fail, blood pools. The result is bulging veins, heaviness, swelling, skin darkening and sometimes ulcers. This is a medical condition, not only a cosmetic one, and it is treatable in the office.</p></details>
+        <details><summary>Leg swelling</summary><p>Swelling can come from the veins, the heart, or both. We check each so the treatment fits the cause.</p></details>
+        <details><summary>Carotid artery disease</summary><p>Plaque in the neck arteries raises the risk of stroke. It is found with a simple ultrasound and followed over time.</p></details>
+        <details><summary>Aortic aneurysm screening</summary><p>An ultrasound of the abdominal aorta looks for enlargement before it causes problems.</p></details>
+        <p class="sub">Testing and procedures</p>
+        <details><summary>Vascular ultrasound</summary><p>Carotid, leg artery, leg vein, renal artery and abdominal aorta studies are performed in our office and interpreted by Dr. Valerio, a Registered Physician in Vascular Interpretation.</p></details>
+        <details><summary>Peripheral angiography and intervention</summary><p>Through a small puncture, the leg arteries are imaged with contrast. Blockages can often be opened in the same session with a balloon, a stent, atherectomy to clear plaque, or thrombectomy to remove clot, and you go home the same day.</p></details>
+        <details><summary>Radiofrequency vein ablation</summary><p>A catheter seals the failing vein from the inside with heat, and blood reroutes to healthy veins. It is done with local anesthesia, and you walk out afterward.</p></details>
+        <details><summary>Varithena foam treatment</summary><p>A medicated foam is injected to close diseased veins. It is useful for twisted veins that a catheter cannot reach.</p></details>
+        <details><summary>Sclerotherapy for varicose and spider veins</summary><p>Small injections close surface veins that are unsightly or uncomfortable. It is done in the office with no downtime.</p></details>
+        <details><summary>Compression therapy</summary><p>Stockings and home compression devices to control swelling, fitted and prescribed as part of your treatment plan.</p></details>
+      </div>
+    </div>
+    <p class="note"><strong>What we refer out.</strong> We do not perform electrophysiology studies or cardiac ablation. If you need one, we coordinate the referral and continue your cardiology care here.</p>
+  </div>
+</section>
+
+<section id="team" aria-labelledby="team-h">
+  <div class="wrap stack-lg">
+    <h2 id="team-h">Our team</h2>
+    <div class="team">
+      <div class="bio stack">
+        <div class="person"><h3>Marcos G. Valerio, MD, FACC</h3><p class="role">Interventional cardiologist &middot; Founder</p></div>
+        <p>Dr. Valerio came to medicine through nursing. Before medical school he worked as a critical care nurse in intensive care units, and then for seven years in the cardiac catheterization unit at NewYork-Presbyterian/Columbia. He stayed at Columbia for his internal medicine residency.</p>
+        <p>He trained in cardiology at Westchester Medical Center and in interventional cardiology at Lenox Hill Hospital in New York, then moved to Miami in 2018. He opened 4 Chambers Cardiology in 2020.</p>
+        <p>A New York native and native Spanish speaker, he sees patients in both languages.</p>
+      </div>
+      <ul class="creds" aria-label="Dr. Valerio's training and certification">
+        <li><span>Medical school</span><span>SUNY Downstate College of Medicine, Brooklyn, NY</span></li>
+        <li><span>Residency</span><span>Internal Medicine, NewYork-Presbyterian/Columbia, New York, NY</span></li>
+        <li><span>Fellowship</span><span>Cardiology, Westchester Medical Center, Valhalla, NY</span></li>
+        <li><span>Fellowship</span><span>Interventional Cardiology, Lenox Hill Hospital, New York, NY</span></li>
+        <li><span>Fellow</span><span>American College of Cardiology (FACC)</span></li>
+        <li><span>Board certification</span><span>Cardiovascular Disease, American Board of Internal Medicine</span></li>
+        <li><span>Vascular</span><span>Registered Physician in Vascular Interpretation (RPVI)</span></li>
+        <li><span>Nursing</span><span>BSN, Binghamton University</span></li>
+      </ul>
+    </div>
+    <div class="team">
+      <div class="bio stack">
+        <div class="person"><h3>Valerie Valerio, APRN, DNP</h3><p class="role">Nurse practitioner &middot; Doctor of Nursing Practice</p></div>
+        <p>Valerie is an advanced practice registered nurse with a doctorate in nursing practice. She studied at Boston University and completed her nursing and advanced practice nursing education at Sacred Heart University in Fairfield, Connecticut. She sees patients for consultations and follow-up visits at our main office, Monday through Friday.</p>
+      </div>
+      <div class="bio stack">
+        <div class="person"><h3>Imaging and clinical staff</h3><p class="role">Echo, vascular ultrasound, nuclear and front office</p></div>
+        <p>Our sonographers, technologists and front-desk team work in the same offices as your doctor, so your test results reach them right away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="locations" aria-labelledby="loc-h">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <h2 id="loc-h">Three offices, one phone number</h2>
+      <p class="lede">Call <a href="tel:+13058561064">305.856.1064</a> for any location. We will tell you which office your appointment is in.</p>
+    </div>
+    <div class="locs">
+      <div class="loc">
+        <span class="tag">Main office</span>
+        <address>4100 SW 57th Ave<br>Miami, FL 33155</address>
+        <p>Consultations and follow-up visits, echocardiograms, vascular ultrasound, treadmill stress tests, device checks and lab work.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=4100+SW+57th+Ave+Miami+FL+33155" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <div class="loc">
+        <span class="tag">Nuclear and PET</span>
+        <address>815 NW 57th Ave, Suite 100<br>Miami, FL 33126</address>
+        <p>Nuclear stress testing (SPECT) and cardiac PET on Tuesday mornings, plus consultations.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=815+NW+57th+Ave+Suite+100+Miami+FL+33126" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <div class="loc">
+        <span class="tag">Procedures</span>
+        <address>7725 NW 48th St, Suite 100<br>Doral, FL 33166</address>
+        <p>Catheterization, peripheral angiography and intervention, and vein procedures.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=7725+NW+48th+St+Suite+100+Doral+FL+33166" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="patients" aria-labelledby="pt-h">
+  <div class="wrap stack-lg">
+    <h2 id="pt-h">For patients</h2>
+    <div class="two">
+      <div class="stack">
+        <h3>What to bring to your first visit</h3>
+        <ul>
+          <li>Photo ID and your insurance card</li>
+          <li>All of your medications, or a current list with doses</li>
+          <li>Recent test results, hospital records or discharge papers, if you have them</li>
+          <li>Your referral, if your plan requires one</li>
+          <li>Your surgeon's name and fax number, if you are coming for clearance</li>
+        </ul>
+        <p>Plan on about 30 minutes for a first visit, and longer if testing is scheduled the same day.</p>
+      </div>
+      <div class="stack">
+        <h3>Insurance and payment</h3>
+        <p>Have your insurance card in hand when you call. We verify your coverage and your copay before your appointment, so there are no surprises at the desk. Copays are collected at check-in.</p>
+        <p>No insurance, or a plan we are not in network with? Self-pay visits are available. Ask for pricing when you call.</p>
+        <h3>Preparing for a stress test</h3>
+        <p>Our staff will go over your instructions when the test is booked, including what to eat, whether to avoid caffeine, and which medications to hold. Wear comfortable clothes and walking shoes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="referring" aria-labelledby="ref-h">
+  <div class="wrap stack-lg">
+    <h2 id="ref-h">For referring physicians</h2>
+    <div class="two">
+      <div class="stack">
+        <p>Fax the referral with demographics, insurance, the clinical question and any recent ECG, labs or imaging. We call the patient to schedule, and our consult note comes back to you after the visit.</p>
+        <p>For pre-operative clearance, include the procedure, the date and where to send the letter.</p>
+        <p>Urgent patient? Call the office and tell the front desk it is a physician calling about an urgent referral.</p>
+      </div>
+      <div class="stack">
+        <div><p class="eyebrow">Referral fax</p><p class="kv">305.856.0644</p></div>
+        <div><p class="eyebrow">Office</p><p class="kv"><a href="tel:+13058561064" style="color:inherit;text-decoration:none">305.856.1064</a></p></div>
+        <div><p class="eyebrow">Common referrals</p><p>Chest pain, dyspnea, abnormal ECG, murmur, syncope, pre-op clearance, claudication, non-healing leg wounds, leg swelling, symptomatic varicose veins, carotid bruit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section lang="es" aria-labelledby="es-h">
+  <div class="wrap stack">
+    <h2 id="es-h">En espa&ntilde;ol</h2>
+    <p class="lede">4 Chambers Cardiology es el consultorio del Dr. Marcos Valerio, cardi&oacute;logo intervencionista. Atendemos enfermedades del coraz&oacute;n, de las arterias y de las venas en nuestras oficinas de Miami y Doral. Las consultas, los ecocardiogramas, las pruebas de esfuerzo y los procedimientos de venas y arterias se hacen en nuestras propias oficinas. El Dr. Valerio habla espa&ntilde;ol.</p>
+    <p><a class="btn btn-call" href="tel:+13058561064">Llame al 305.856.1064</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="stack"><strong>4 Chambers Cardiology</strong><span>Cardiac and Vascular Services</span><span>Phone <a href="tel:+13058561064">305.856.1064</a><br>Fax 305.856.0644</span></div>
+      <div class="stack"><strong>Offices</strong><span>4100 SW 57th Ave, Miami, FL 33155</span><span>815 NW 57th Ave, Suite 100, Miami, FL 33126</span><span>7725 NW 48th St, Suite 100, Doral, FL 33166</span></div>
+      <div class="stack"><strong>In an emergency</strong><span>If you think you are having a heart attack or stroke, call 911. Do not use this website or email to report urgent symptoms.</span></div>
+    </div>
+    <p class="fine">&copy; 2026 4 Chambers Cardiology, a registered name of MV528 Corp. Group NPI 1811522618. The information on this site is general and is not medical advice; it does not replace a visit with a physician. Please do not send personal health information by regular email.</p>
+  </div>
+</footer>
+<div class="callbar"><a href="tel:+13058561064">Call 305.856.1064</a></div>
+
+
+</body>
+</html>
