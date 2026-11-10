@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Google Analytics (GA4). Public marketing pages only; no patient information is collected. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ0XK26ZM5"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-NZ0XK26ZM5');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a){gtag('event','phone_call_click',{link_location:(a.closest('header,footer,.callbar,.mnav,section,aside,nav')||document.body).className||'page',page_path:location.pathname});}});
+</script>
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="4 Chambers Cardiology: heart, vascular and vein care in Miami and Doral. Cardiac testing, leg circulation (PAD) treatment, varicose vein treatment and preoperative cardiac evaluation. Call 305.856.1064.">
 <title>4 Chambers Cardiology | Cardiologist in Miami &amp; Doral – Heart, Vascular &amp; Vein Care</title>
@@ -162,6 +170,8 @@ section{padding-block:96px}
 
 /* 3 physician */
 .physician{background:var(--stone)}
+.np-row{margin-top:72px}
+@media (max-width:900px){.np-row{margin-top:48px}}
 .phys-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:start}
 .portrait{aspect-ratio:4/5;border-radius:24px;background:linear-gradient(160deg,#2C2627,#1A1718);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:30px;color:var(--on-night)}
 .portrait{margin:0}
@@ -409,13 +419,6 @@ footer a{color:var(--on-night)}
         <div><dt>Fellow</dt><dd>American College of Cardiology</dd></div>
         <div><dt>Medical school</dt><dd>SUNY Downstate College of Medicine</dd></div>
       </dl>
-      <div class="np">
-        <img class="badge" src="valerie-valerio.jpg" width="80" height="80" alt="Valerie Valerio, APRN, DNP">
-        <div>
-          <h3>Valerie Valerio, APRN, DNP</h3>
-          <p>Nurse practitioner with a Doctor of Nursing Practice. Sees patients for consultations and follow-up at our main office.</p>
-        </div>
-      </div>
       <details class="last">
         <summary>Full training and education</summary>
         <div class="det-body">
@@ -425,9 +428,25 @@ footer a{color:var(--on-night)}
             <li>Fellowship: Cardiology, Westchester Medical Center, Valhalla, NY</li>
             <li>Fellowship: Interventional Cardiology, Lenox Hill Hospital, New York, NY</li>
           </ul>
-          <p>Valerie Valerio studied at Boston University and completed her nursing and advanced practice nursing education at Sacred Heart University in Fairfield, Connecticut.</p>
         </div>
       </details>
+    </div>
+  </div>
+  <div class="wrap phys-grid np-row">
+    <figure class="portrait">
+      <img src="valerie-valerio.jpg" width="800" height="1000" alt="Valerie Valerio, APRN, DNP">
+      <figcaption class="cap"><strong>Valerie Valerio, APRN, DNP</strong><span>Nurse practitioner</span></figcaption>
+    </figure>
+    <div class="phys-copy">
+      <p class="kicker">Meet your nurse practitioner</p>
+      <h2>Valerie Valerio, APRN, DNP</h2>
+      <p>Valerie is an advanced practice registered nurse with a Doctor of Nursing Practice. She sees patients for consultations and follow-up visits at our main office, Monday through Friday.</p>
+      <dl class="cred-grid">
+        <div><dt>Degree</dt><dd>Doctor of Nursing Practice</dd></div>
+        <div><dt>Advanced practice</dt><dd>Sacred Heart University</dd></div>
+        <div><dt>College</dt><dd>Boston University</dd></div>
+        <div><dt>Sees patients</dt><dd>Main office, Monday to Friday</dd></div>
+      </dl>
     </div>
   </div>
 </section>
